@@ -1,6 +1,6 @@
 ﻿// ***********************************************************************
-// Assembly         : FCS.Lib.Maps.AzureMap
-// Filename         : AzureMapsRequestService.cs
+// Assembly         : FCS.Lib.Maps.OpenStreetMap
+// Filename         : MapsRequestService.cs
 // Author           : Frede Hundewadt
 // Created          : 2024 03 20 15:40
 // 
@@ -8,7 +8,7 @@
 // Last Modified On : 2024 03 20 15:42
 // ***********************************************************************
 // <copyright company="FCS">
-//     Copyright (C) 2024-2024 FCS Fredes Computer Services.
+//     Copyright (C) 2024-2024 FCS Frede's Computer Service.
 //     This program is free software: you can redistribute it and/or modify
 //     it under the terms of the GNU Affero General Public License as
 //     published by the Free Software Foundation, either version 3 of the
@@ -32,7 +32,7 @@ using System.Threading.Tasks;
 
 namespace FCS.Lib.Maps.OpenStreetMap;
 
-public class MapsRequestService : IAzureMapsRequestService
+public class MapsRequestService : IMapsRequestService
 {
     //public async Task<MapResultFromPosition> GetInfoFromPosition(MapServer server, MapFromPosition info)
     //{
