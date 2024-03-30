@@ -30,7 +30,7 @@ using FCS.Lib.Maps.AzureMap.Models;
 
 namespace FCS.Lib.Maps.AzureMap;
 
-public interface IAzureMapsRequestService
+public interface IAtlasRequestService
 {
     Task<MapResultFromPosition> GetInfoFromPosition(MapServer mapServer, MapFromPosition info);
     Task<MapResultFromAddress> GetInfoFromAddress(MapServer mapServer, MapFromAddress info);

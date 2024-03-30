@@ -46,8 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AzureMapsRequestService.cs" />
-    <Compile Include="IAzureMapsRequestService.cs" />
+    <Compile Include="AtlasRequestService.cs" />
+    <Compile Include="IAtlasRequestService.cs" />
     <Compile Include="Models\MapEntryPoint.cs" />
     <Compile Include="Models\MapResultFromPosition.cs" />
     <Compile Include="Models\MapServer.cs" />

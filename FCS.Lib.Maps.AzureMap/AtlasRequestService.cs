@@ -34,7 +34,7 @@ using Newtonsoft.Json;
 
 namespace FCS.Lib.Maps.AzureMap;
 
-public class AzureMapsRequestService : IAzureMapsRequestService
+public class AtlasRequestService : IAtlasRequestService
 {
     public async Task<MapResultFromPosition> GetInfoFromPosition(MapServer server, MapFromPosition info)
     {
