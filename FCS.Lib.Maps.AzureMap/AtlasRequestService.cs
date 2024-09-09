@@ -1,11 +1,11 @@
 ﻿// ***********************************************************************
 // Assembly         : FCS.Lib.Maps.AzureMap
-// Filename         : AzureMapsRequestService.cs
+// Filename         : AtlasRequestService.cs
 // Author           : Frede Hundewadt
-// Created          : 2024 03 28 13:16
+// Created          : 2024 03 30 09:59
 // 
 // Last Modified By : root
-// Last Modified On : 2024 03 29 12:36
+// Last Modified On : 2024 04 11 13:04
 // ***********************************************************************
 // <copyright company="FCS">
 //     Copyright (C) 2024-2024 FCS Frede's Computer Service.
@@ -31,6 +31,7 @@ using System.Text;
 using System.Threading.Tasks;
 using FCS.Lib.Maps.AzureMap.Models;
 using Newtonsoft.Json;
+
 
 namespace FCS.Lib.Maps.AzureMap;
 
@@ -72,6 +73,7 @@ public class AtlasRequestService : IAtlasRequestService
 
         return JsonConvert.DeserializeObject<MapResultFromPosition>(content);
     }
+
 
     public async Task<MapResultFromAddress> GetInfoFromAddress(MapServer server, MapFromAddress info)
     {
