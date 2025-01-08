@@ -1,29 +1,28 @@
-﻿// ***********************************************************************
-// Assembly         : FCS.Lib.Maps.AzureMap
-// Filename         : AtlasRequestService.cs
-// Author           : Frede Hundewadt
-// Created          : 2024 03 30 09:59
-// 
-// Last Modified By : root
-// Last Modified On : 2024 04 11 13:04
-// ***********************************************************************
-// <copyright company="FCS">
-//     Copyright (C) 2024-2024 FCS Frede's Computer Service.
-//     This program is free software: you can redistribute it and/or modify
-//     it under the terms of the GNU Affero General Public License as
-//     published by the Free Software Foundation, either version 3 of the
-//     License, or (at your option) any later version.
-// 
-//     This program is distributed in the hope that it will be useful,
-//     but WITHOUT ANY WARRANTY; without even the implied warranty of
-//     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//     GNU Affero General Public License for more details.
-// 
-//     You should have received a copy of the GNU Affero General Public License
-//     along with this program.  If not, see [https://www.gnu.org/licenses]
-// </copyright>
-// <summary></summary>
-// ***********************************************************************
+﻿// // ***********************************************************************
+// // Solution         : Inno.Api.v2
+// // Assembly         : FCS.Lib.Maps.AzureMap
+// // Filename         : AtlasRequestService.cs
+// // Created          : 2025-01-03 14:01
+// // Last Modified By : dev
+// // Last Modified On : 2025-01-04 11:01
+// // ***********************************************************************
+// // <copyright company="Frede Hundewadt">
+// //     Copyright (C) 2010-2025 Frede Hundewadt
+// //     This program is free software: you can redistribute it and/or modify
+// //     it under the terms of the GNU Affero General Public License as
+// //     published by the Free Software Foundation, either version 3 of the
+// //     License, or (at your option) any later version.
+// //
+// //     This program is distributed in the hope that it will be useful,
+// //     but WITHOUT ANY WARRANTY; without even the implied warranty of
+// //     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// //     GNU Affero General Public License for more details.
+// //
+// //     You should have received a copy of the GNU Affero General Public License
+// //     along with this program.  If not, see [https://www.gnu.org/licenses]
+// // </copyright>
+// // <summary></summary>
+// // ***********************************************************************
 
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -32,11 +31,32 @@ using System.Threading.Tasks;
 using FCS.Lib.Maps.AzureMap.Models;
 using Newtonsoft.Json;
 
-
 namespace FCS.Lib.Maps.AzureMap;
 
+/// <summary>
+///     Provides functionality for making requests to the Azure Maps service.
+/// </summary>
+/// <remarks>
+///     This service is responsible for constructing and sending HTTP requests to Azure Maps endpoints
+///     and processing the responses. It supports operations such as retrieving information based on
+///     geographic positions or addresses.
+/// </remarks>
 public class AtlasRequestService : IAtlasRequestService
 {
+    /// <summary>
+    ///     Retrieves map information based on a geographical position.
+    /// </summary>
+    /// <param name="server">
+    ///     The <see cref="MapServer" /> instance containing server details such as host, API key, and API version.
+    /// </param>
+    /// <param name="info">
+    ///     The <see cref="MapFromPosition" /> instance containing the latitude, longitude, and additional request parameters.
+    /// </param>
+    /// <returns>
+    ///     A task that represents the asynchronous operation. The task result contains a <see cref="MapResultFromPosition" />
+    ///     object
+    ///     with the map information retrieved from the specified position, or <c>null</c> if the request fails.
+    /// </returns>
     public async Task<MapResultFromPosition> GetInfoFromPosition(MapServer server, MapFromPosition info)
     {
         // create a map request
@@ -74,7 +94,20 @@ public class AtlasRequestService : IAtlasRequestService
         return JsonConvert.DeserializeObject<MapResultFromPosition>(content);
     }
 
-
+    /// <summary>
+    ///     Retrieves map information based on the provided address details.
+    /// </summary>
+    /// <param name="server">
+    ///     The <see cref="MapServer" /> instance containing server configuration, such as the host URL and API version.
+    /// </param>
+    /// <param name="info">
+    ///     The <see cref="MapFromAddress" /> instance containing address details, such as country code, postal code, street
+    ///     name, and street number.
+    /// </param>
+    /// <returns>
+    ///     A task that represents the asynchronous operation. The task result contains a <see cref="MapResultFromAddress" />
+    ///     object with the map information, or <c>null</c> if the request fails.
+    /// </returns>
     public async Task<MapResultFromAddress> GetInfoFromAddress(MapServer server, MapFromAddress info)
     {
         // server: "https://atlas.microsoft.com"
